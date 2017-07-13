@@ -4,6 +4,7 @@ body{
     background-color: #f0f0f0;
 }
 .container{
-    width: 960px;
-    margin:auto;
+    text-align: center;
+    /*width: 960px;*/
+    /*margin:auto;*/
 }
