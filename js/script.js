@@ -24,13 +24,13 @@ window.onload =  function () {
     // console.log(date);
     // timeDown("Sep 21, 2015 06:06:06",".albumrelease",false);
     // timeUp("Jan 21, 2021 21:21:00",".bestalbumcomebacktime",true);
-   var lastpost = new Date(1498299013*1000);
-    console.log(lastpost);
+   // var lastpost = new Date(1498299013*1000);
+   //  console.log(lastpost);
 
-    $.getJSON('https://www.instagram.com/chaelincl/media/', function(data) {
-        //data is the JSON string
-        console.log(data);
-    })
+    // $.getJSON('https://www.instagram.com/chaelincl/media/', function(data) {
+    //     //data is the JSON string
+    //     console.log(data);
+    // })
 
 
 };
