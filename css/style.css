@@ -8,3 +8,10 @@ body{
     /*width: 960px;*/
     /*margin:auto;*/
 }
+.albumrelease{
+    width: 5em;
+    margin: auto;
+}
+img{
+    border-radius: 5%;
+}
