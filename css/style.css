@@ -18,3 +18,11 @@ img{
 q{
     font-size: 10em;
 }
+.lifted{
+    font-size: 5em;
+    margin: 0;
+}
+
+.lifted+img{
+    margin-top: 2em;
+}

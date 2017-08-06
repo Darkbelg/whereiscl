@@ -31,6 +31,7 @@ window.onload =  function () {
     //     //data is the JSON string
     //     console.log(data);
     // })
+    timeUp("08 17, 2017 23:59:59",".lifted");
 
 
 };
@@ -41,27 +42,27 @@ window.onload =  function () {
 // }
 
 
-function Counter(tijd,element,upOrDown) {
-    if(upOrDown){
-        timeUp(tijd);
-        document.querySelector(".bestalbumcomebacktime").innerHTML =timeDown(tijd);
-    }
-}
+// function Counter(tijd,element,upOrDown) {
+//     if(upOrDown){
+//         timeUp(tijd);
+//         document.querySelector(".bestalbumcomebacktime").innerHTML =timeDown(tijd);
+//     }
+// }
 
 
-function timeDown(time) {
-    // Get todays date and time
-    var now = new Date().getTime();
-// Set the date we're counting down to
-var countDownDate = new Date(time).getTime();
-// Find the distance between now an the count down date
-    var distance = now - countDownDate;
-// Update the count down every 1 second
-var x = setInterval( output(distance), 1000)
-// console.log();
+// function timeDown(time) {
+//     // Get todays date and time
+//     var now = new Date().getTime();
+// // Set the date we're counting down to
+// var countDownDate = new Date(time).getTime();
+// // Find the distance between now an the count down date
+//     var distance = now - countDownDate;
+// // Update the count down every 1 second
+// var x = setInterval( output(distance), 1000)
+// // console.log();
+//
 
-
-}
+// }
 
 function output(distance) {
     // Time calculations for days, hours, minutes and seconds
@@ -81,7 +82,7 @@ function output(distance) {
     // }
 }
 
-function timeUp(time) {
+function timeUp(time,element) {
 
 
 // Set the date we're counting down to
@@ -105,9 +106,29 @@ var x = setInterval(function() {
     // var minutes = minute(distance);
     // var seconds = second(distance);
 
+    output = "";
     // Display the result in the element with id="demo"
-    document.querySelector(".albumrelease").innerHTML = time["years"] + "y " + time["months"] + "m " + time["days"] + "d " + time["hours"] + "h "
-        + time["minutes"] + "m " + time["seconds"] + "s ";
+    if( time["years"]!==0){
+        output += time["years"] + "y ";
+    }
+    if( time["months"]!==0){
+        output += time["months"] + "m ";
+    }
+    if( time["days"]!==0){
+        output += time["days"] + "d ";
+    }
+    if( time["hours"]!==0){
+        output += time["hours"] + "h ";
+    }
+    if( time["minutes"]!==0){
+        output += time["minutes"] + "m ";
+    }
+    if( time["seconds"]!==0){
+        output += time["seconds"] + "s ";
+    }
+
+
+    document.querySelector(element).innerHTML = output;
 
     // If the count down is finished, write some text
     // if (distance < 0) {
