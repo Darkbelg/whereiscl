@@ -31,7 +31,7 @@ window.onload =  function () {
     //     //data is the JSON string
     //     console.log(data);
     // })
-     timeUp("08 22 2016 23:59:59",".lifted");
+     timeUp("08 17, 2017 23:59:59",".lifted");
 
 
 
@@ -96,7 +96,7 @@ var x = setInterval(function() {
     var now = new Date().getTime();
 
     // Find the distance between now an the count down date
-    var distance = now - countDownDate;
+    var distance = countDownDate + now;
 
     // Time calculations for days, hours, minutes and seconds
     var time = calculateTime(distance);
