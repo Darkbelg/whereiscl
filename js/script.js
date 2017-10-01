@@ -1,69 +1,8 @@
-/**
- * Created by stijn on 30-Jun-17.
- */
-//TODO clean up the code
-//TODO Figure out when the last post happend for certain communities
-//TODO clthebaddestfemale 9/10/2016
-//TODO fy-cl.tumblr.com 4/2/2017
-// I need to do something different.
-
-
-
 window.onload =  function () {
-    // var myVar = setInterval(myTimer,1000);
 
-    // console.log();
-    // $("#getting-started")
-        // .countdown("2017/08/18", function(event) {
-        //     $(this).text(
-        //         event.strftime('%D days %H:%M:%S')
-        //     );
-        // });
-
-    // date = Date('today');
-    // console.log(date);
-    // timeDown("Sep 21, 2015 06:06:06",".albumrelease",false);
-    // timeUp("Jan 21, 2021 21:21:00",".bestalbumcomebacktime",true);
-   // var lastpost = new Date(1498299013*1000);
-   //  console.log(lastpost);
-
-    // $.getJSON('https://www.instagram.com/chaelincl/media/', function(data) {
-    //     //data is the JSON string
-    //     console.log(data);
-    // })
      timeUp("08 22 2016 23:59:59",".lifted");
 
-
-
 };
-
-// function myTimer() {
-//     var d = new Date();
-//     document.getElementById("datecounter").innerHTML = d.toLocaleTimeString();
-// }
-
-
-// function Counter(tijd,element,upOrDown) {
-//     if(upOrDown){
-//         timeUp(tijd);
-//         document.querySelector(".bestalbumcomebacktime").innerHTML =timeDown(tijd);
-//     }
-// }
-
-
-// function timeDown(time) {
-//     // Get todays date and time
-//     var now = new Date().getTime();
-// // Set the date we're counting down to
-// var countDownDate = new Date(time).getTime();
-// // Find the distance between now an the count down date
-//     var distance = now - countDownDate;
-// // Update the count down every 1 second
-// var x = setInterval( output(distance), 1000)
-// // console.log();
-//
-
-// }
 
 function output(distance) {
     // Time calculations for days, hours, minutes and seconds
@@ -76,16 +15,9 @@ function output(distance) {
     // Display the result in the element with id="demo"
     var x= years + "y " + months + "m " + days + "d " + hours + "h "
         + minutes + "m " + seconds + "s ";
-    // If the count down is finished, write some text
-    // if (distance < 0) {
-    //     clearInterval(x);
-    //     document.getElementById("demo").innerHTML = "EXPIRED";
-    // }
 }
 
 function timeUp(time,element) {
-
-
 // Set the date we're counting down to
 var countDownDate = new Date(time).getTime();
 
@@ -127,15 +59,7 @@ var x = setInterval(function() {
     if( time["seconds"]!==0){
         output += time["seconds"] + "s ";
     }
-
-
     document.querySelector(element).innerHTML = output;
-
-    // If the count down is finished, write some text
-    // if (distance < 0) {
-    //     clearInterval(x);
-    //     document.getElementById("demo").innerHTML = "EXPIRED";
-    // }
 }, 1000);
 }
 
@@ -143,10 +67,10 @@ function calculateTime(distance) {
     var time = {};
     // Time calculations for days, hours, minutes and seconds
     time["years"] = year(distance);
-     time["months"] = month(distance);
+    time["months"] = month(distance);
     time["days"] = day(distance);
     time["hours"] = hour(distance);
-     time["minutes"] = minute(distance);
+    time["minutes"] = minute(distance);
     time["seconds"] = second(distance);
 
     return time;
