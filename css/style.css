@@ -27,7 +27,7 @@ q{
     margin-top: 2em;
 }
 
-.center{
+.center,.helpme{
     width: 100%;
 }
 .videoWrapper {
@@ -44,11 +44,25 @@ q{
     width: 100%;
     height: 100%;
 }
-
-
+.help{
+    float: left;
+    display: inline-block;
+}
+.center+h2{
+    clear: both;
+}
 @media screen and (min-width: 658px) {
+    .center,.help{
+        margin: auto;
+    }
     .center{
     width: 658px;
-    margin: auto;
-}
+    }
+    .help{
+        width: 32%;
+        padding: 0.5%;
+    }
+    .helpme{
+        width: 60%;
+    }
 }
