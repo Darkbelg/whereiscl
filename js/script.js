@@ -42,23 +42,26 @@ var x = setInterval(function() {
     output = "";
     // Display the result in the element with id="demo"
     if( time["years"]!==0){
-        output += time["years"] + "y ";
+        output += String(time["years"]) + "y ";
     }
     if( time["months"]!==0){
-        output += time["months"] + "m ";
+        output += String(time["months"]) + "m ";
     }
     if( time["days"]!==0){
-        output += time["days"] + "d ";
+        output += String(time["days"]) + "d ";
     }
     if( time["hours"]!==0){
-        output += time["hours"] + "h ";
+        output += String(time["hours"]) + "h ";
     }
     if( time["minutes"]!==0){
-        output += time["minutes"] + "m ";
+        output += String(time["minutes"]) + "m ";
     }
     if( time["seconds"]!==0){
-        output += time["seconds"] + "s ";
+        output += String(time["seconds"]) + "s ";
     }
+  
+
+
     document.querySelector(element).innerHTML = output;
 }, 1000);
 }
