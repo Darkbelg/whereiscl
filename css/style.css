@@ -47,6 +47,7 @@ q{
 .help{
     float: left;
     display: inline-block;
+    width: 100%;
 }
 .center+h2{
     clear: both;
@@ -63,6 +64,6 @@ q{
         padding: 0.5%;
     }
     .helpme{
-        width: 60%;
+        width: 75%;
     }
 }
