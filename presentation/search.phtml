@@ -1,0 +1,36 @@
+<div class="center">
+<div class="videoWrapper">
+<div id="fancam1"></div>
+</div>
+</div>
+<div class="center">
+<div class="videoWrapper">
+<div id="fancam2"></div>
+</div>
+</div>
+<div class="center">
+<div class="videoWrapper">
+<div id="fancam3"></div>
+</div>
+</div>
+
+    <script>
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    var player;
+
+    function fancamvideos() {
+        <?php $j =1 ?>
+        
+        <?php foreach($fancam as $video): ?>
+        
+    player = new YT.Player('fancam' + <?php echo $j ?>, {
+        height: '390',
+        width: '640',
+        videoId: '<?php echo $video?>'
+    });
+    <?php $j ++;?>
+    <?php endforeach ?>
+    }
+    
+    </script>
