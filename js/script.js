@@ -111,6 +111,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 //    after the API code downloads.
 var player;
 function onYouTubeIframeAPIReady() {
+    fancamvideos();
   player = new YT.Player('player', {
     height: '390',
     width: '640',
