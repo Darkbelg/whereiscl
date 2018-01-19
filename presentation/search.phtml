@@ -1,17 +1,19 @@
-<div class="center">
-<div class="videoWrapper">
-<div id="fancam1"></div>
-</div>
-</div>
-<div class="center">
-<div class="videoWrapper">
-<div id="fancam2"></div>
-</div>
-</div>
-<div class="center">
-<div class="videoWrapper">
-<div id="fancam3"></div>
-</div>
+<div class="row">
+    <div class="col" id="fancam1">
+        <div class="progress">
+            <div class="progress-bar progress-bar-animated progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+        </div>
+    </div>
+    <div class="col" id="fancam2">
+        <div class="progress">
+            <div class="progress-bar progress-bar-animated progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+        </div>
+    </div>
+    <div class="col" id="fancam3">
+        <div class="progress">
+            <div class="progress-bar progress-bar-animated progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+        </div>
+    </div>
 </div>
 
     <script>
@@ -25,8 +27,6 @@
         <?php foreach($fancam as $video): ?>
         
     player = new YT.Player('fancam' + <?php echo $j ?>, {
-        height: '390',
-        width: '640',
         videoId: '<?php echo $video?>'
     });
     <?php $j ++;?>

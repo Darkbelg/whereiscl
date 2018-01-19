@@ -1,19 +1,9 @@
 <?php
 include "Service.php";
 
- $concert = ["171216","161031"];
-$htmlRow = <<<END
-    <div class="row">
-        <div class="col" id="$video1"></div>
-        <div class="col" id="$video2"></div>
-        <div class="col" id="$video3"></div>
-    </div>
-END;
 try{
   $service = Service::new();
 
-
-   
     $searchResponse = $service->search->listSearch('id,snippet', array(
         'q' => 'cl 171216',
         'type' => 'video',
