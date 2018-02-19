@@ -1,20 +1,4 @@
-<div class="row">
-    <div class="col" id="fancam1">
-        <div class="progress">
-            <div class="progress-bar progress-bar-animated progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-        </div>
-    </div>
-    <div class="col" id="fancam2">
-        <div class="progress">
-            <div class="progress-bar progress-bar-animated progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-        </div>
-    </div>
-    <div class="col" id="fancam3">
-        <div class="progress">
-            <div class="progress-bar progress-bar-animated progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-        </div>
-    </div>
-</div>
+<?php echo $html; ?>
 
     <script>
     // 3. This function creates an <iframe> (and YouTube player)
@@ -22,15 +6,29 @@
     var player;
 
     function fancamvideos() {
-        <?php $j =1 ?>
-        
-        <?php foreach($fancam as $video): ?>
-        
-    player = new YT.Player('fancam' + <?php echo $j ?>, {
-        videoId: '<?php echo $video?>'
-    });
-    <?php $j ++;?>
-    <?php endforeach ?>
+
+        <?php foreach ($searchResponses as $key => $searchResponse) {
+        $date = $searchResponses[$key]["date"];
+
+        for ($i = 0; $i < 3; $i++) {
+            $idVideo = $searchResponse["items"][$i];
+            $id = $date + $i;
+            print('player = new YT.Player("' . $id . '", { videoId: "' . $idVideo . '" });');
+        }
     }
+        ?>
+    }
+
+
+<!--        --><?php //$j =1 ?>
+<!--        -->
+<!--        --><?php //foreach($fancam as $video): ?>
+//
+//    player = new YT.Player('fancam' + <?php //echo $j ?>//, {
+//        videoId: '<?php //echo $video?>//'
+//    });
+//    <?php //$j ++;?>
+<!--    --><?php //endforeach ?>
+//    }
     
     </script>
