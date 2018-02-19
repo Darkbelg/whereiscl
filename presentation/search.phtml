@@ -13,7 +13,13 @@
         for ($i = 0; $i < 3; $i++) {
             $idVideo = $searchResponse["items"][$i];
             $id = $date + $i;
-            print('player = new YT.Player("' . $id . '", { videoId: "' . $idVideo . '" });');
+            ?>
+            player = new YT.Player("<?php echo $id ?>",
+                {
+                    videoId: "<?php echo $idVideo ?>",
+                    host: 'https://www.youtube.com'
+                });
+            <?php
         }
     }
         ?>
