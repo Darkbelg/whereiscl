@@ -9,6 +9,8 @@ class Concert
     private $city;
     private $country;
     private $name;
+    //array
+    private $fancams;
     const DATERANGE = 5;
 
     /**
@@ -89,5 +91,22 @@ class Concert
     {
         $this->name = $name;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getFancams()
+    {
+        return $this->fancams;
+    }
+
+    /**
+     * @param mixed $fancams
+     */
+    public function setFancams($fancams)
+    {
+        $this->fancams = $fancams;
+    }
+
 
 }
