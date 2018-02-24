@@ -11,7 +11,15 @@ class Concert
     private $name;
     //array
     private $fancams;
-    const DATERANGE = 5;
+    private static  $dateRange = 5;
+
+    /**
+     * @return int
+     */
+    public static function getDateRange()
+    {
+        return self::$dateRange;
+    }
 
     /**
      * Concerts constructor.

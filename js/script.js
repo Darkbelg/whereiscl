@@ -1,6 +1,5 @@
 window.onload = function () {
     googleAnalytics();
-    youtubeLoader();
 };
 
 function googleAnalytics() {
@@ -11,6 +10,7 @@ function googleAnalytics() {
     gtag('config', 'UA-109821873-1');
     console.log("Analytics loading done");
 }
+
 function youtubeLoader() {
     var tag = document.createElement('script');
 
@@ -22,4 +22,5 @@ function youtubeLoader() {
 function onYouTubeIframeAPIReady() {
     fancamvideos();
     console.log("Youtube frame Api triggerd");
+
 }
