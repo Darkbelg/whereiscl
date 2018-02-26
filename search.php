@@ -5,6 +5,7 @@ require_once "Model/Fancam.php";
 
 // $concerts = ["180210","171216","161031"];
 $concerts = array();
+array_push($concerts, new Concert("180225", "Olympics"));
 array_push($concerts, new Concert("180210", "LAFF"));
 array_push($concerts, new Concert("171216", "Asian Fashion Award"));
 array_push($concerts, new Concert("161031", "Hello Bitches Tour"));
@@ -33,7 +34,7 @@ try {
         $searchResults = $service->search->listSearch('id,snippet', array(
             'q' =>  'intitle:'.$concert->getDate().' cl ' . $concert->getName(),
             'type' => 'video',
-            'videoDuration' => 'any',
+            'videoDuration' => 'medium',
             'maxResults' => '3',
             'publishedAfter' => $timeBefore->format("Y-m-d\TH:i:sP"),
             'publishedBefore' => $timeAfter->format("Y-m-d\TH:i:sP"),
