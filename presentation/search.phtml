@@ -8,11 +8,7 @@ foreach ($concerts as $concert) {
     </div>';
     foreach ($concert->getFancams() as $key => $fancam) {
         $id = $concert->getDate().$key;
-            if($id== "1802250" || $id== "1802252") {
-                
-            }else{
-                $html .= '<div class="col" id="' . $id . '">' . $progress . '</div>';
-            }
+        $html .= '<div class="col" id="' . $id . '">' . $progress . '</div>';
     }
     $html .= '</div>';
 

@@ -5,19 +5,22 @@ require_once "Model/Fancam.php";
 
 // $concerts = ["180210","171216","161031"];
 $concerts = array();
+
+array_push($concerts, new Concert("180320", "99%"));
+array_push($concerts, new Concert("180308", "Tory Burch"));
 array_push($concerts, new Concert("180225", "Olympics"));
 array_push($concerts, new Concert("180210", "LAFF"));
 array_push($concerts, new Concert("171216", "Asian Fashion Award"));
+array_push($concerts, new Concert("170416", "Not Hello Bitches Tour"));
 array_push($concerts, new Concert("161031", "Hello Bitches Tour"));
 array_push($concerts, new Concert("161029", "Hello Bitches Tour"));
 array_push($concerts, new Concert("161101", "Hello Bitches Tour"));
 array_push($concerts, new Concert("161103", "Hello Bitches Tour"));
 array_push($concerts, new Concert("161104", "Hello Bitches Tour"));
-array_push($concerts, new Concert("161106", "Hello Bitches Tour"));
+//array_push($concerts, new Concert("161106", "Hello Bitches Tour"));
 array_push($concerts, new Concert("161108", "Hello Bitches Tour"));
 array_push($concerts, new Concert("161110", "Hello Bitches Tour"));
-array_push($concerts,new Concert("161114", "Hello Bitches Tour"));
-array_push($concerts,new Concert("170416", "Not Hello Bitches Tour"));
+//array_push($concerts, new Concert("161114", "Hello Bitches Tour"));
 
 
 
@@ -32,7 +35,7 @@ try {
         $timeAfter->add($timeAdd);
         $timeBefore = new DateTime('20'.$timeConcertAfter[0].$timeConcertAfter[1]."-".$timeConcertAfter[2].$timeConcertAfter[3]."-".$timeConcertAfter[4].$timeConcertAfter[5]);
         $searchResults = $service->search->listSearch('id,snippet', array(
-            'q' =>  'intitle:'.$concert->getDate().' cl ' . $concert->getName(),
+            'q' =>  'intitle:'.$concert->getDate().' intitle:cl ' . $concert->getName(),
             'type' => 'video',
             'videoDuration' => 'medium',
             'maxResults' => '3',
