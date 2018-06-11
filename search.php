@@ -6,6 +6,7 @@ require_once "Model/Fancam.php";
 // $concerts = ["180210","171216","161031"];
 $concerts = array();
 
+array_push($concerts, new Concert("180610", "Ultra Music"));
 array_push($concerts, new Concert("180320", "99%"));
 array_push($concerts, new Concert("180308", "Tory Burch"));
 array_push($concerts, new Concert("180225", "Olympics"));
@@ -21,8 +22,7 @@ array_push($concerts, new Concert("161104", "Hello Bitches Tour"));
 array_push($concerts, new Concert("161108", "Hello Bitches Tour"));
 array_push($concerts, new Concert("161110", "Hello Bitches Tour"));
 //array_push($concerts, new Concert("161114", "Hello Bitches Tour"));
-
-
+array_push($concerts, new Concert("150613", "UMF"));
 
 
 try {
