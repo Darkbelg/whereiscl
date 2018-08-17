@@ -1,0 +1,7 @@
+User-agent: *
+
+# Host
+Host: www.whereiscl.com
+
+# Sitemap
+Sitemap: https://www.whereiscl.com/sitemap.xml
