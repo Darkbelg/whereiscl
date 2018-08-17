@@ -1,12 +1,12 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <sitemap>
         <loc>
-        https://www.whereiscl.com/
+            https://www.whereiscl.com/
         </loc>
     </sitemap>
-        <sitemap>
+    <sitemap>
         <loc>
-        https://www.whereiscl.com/donate.php
+            https://www.whereiscl.com/donate.php
         </loc>
     </sitemap>
 </sitemapindex>
