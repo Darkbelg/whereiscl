@@ -1,0 +1,106 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: ''
+Resources:
+  MyFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: my-function
+      Description: ''
+      CodeUri: s3://whereiscl-php/b6486dd0a5cd0a7915f2a6c6b9c14dac
+      Handler: index.php
+      Timeout: 30
+      MemorySize: 1024
+      Runtime: provided
+      Layers:
+      - arn:aws:lambda:eu-west-3:209497400698:layer:php-73-fpm:6
+      Events:
+        HttpRoot:
+          Type: Api
+          Properties:
+            Path: /
+            Method: ANY
+        HttpSubPaths:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: ANY
+  Assets:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: whereiscl
+      WebsiteConfiguration:
+        IndexDocument: index.html
+  AssetsBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket:
+        Ref: Assets
+      PolicyDocument:
+        Statement:
+        - Effect: Allow
+          Principal: '*'
+          Action: s3:GetObject
+          Resource:
+            Fn::Sub: ${Assets.Arn}/*
+  WebsiteCDN:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        PriceClass: PriceClass_100
+        Origins:
+        - Id: Website
+          DomainName:
+            Fn::Sub: ${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com
+          OriginPath: /Prod
+          CustomOriginConfig:
+            OriginProtocolPolicy: https-only
+        - Id: Assets
+          DomainName:
+            Fn::Sub: ${Assets}.s3-website.${AWS::Region}.amazonaws.com
+          CustomOriginConfig:
+            OriginProtocolPolicy: http-only
+        DefaultCacheBehavior:
+          AllowedMethods:
+          - GET
+          - HEAD
+          - OPTIONS
+          - PUT
+          - POST
+          - PATCH
+          - DELETE
+          TargetOriginId: Website
+          DefaultTTL: 0
+          MinTTL: 0
+          MaxTTL: 0
+          ForwardedValues:
+            QueryString: true
+            Headers:
+            - Accept
+            - Accept-Language
+            - Origin
+            - Referer
+          ViewerProtocolPolicy: redirect-to-https
+        CacheBehaviors:
+        - PathPattern: assets/*
+          TargetOriginId: Assets
+          AllowedMethods:
+          - GET
+          - HEAD
+          ForwardedValues:
+            QueryString: 'false'
+            Cookies:
+              Forward: none
+          ViewerProtocolPolicy: redirect-to-https
+          Compress: true
+        Aliases:
+        - www.whereiscl.com
+        ViewerCertificate:
+          AcmCertificateArn: arn:aws:acm:us-east-1:737778013917:certificate/590d99fe-8713-4509-aeac-1f6e8488abed
+          SslSupportMethod: sni-only
+Outputs:
+  DemoHttpApi:
+    Description: URL of our function in the *Prod* environment
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/
