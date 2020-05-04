@@ -7,7 +7,7 @@ Resources:
     Properties:
       FunctionName: my-function
       Description: ''
-      CodeUri: s3://whereiscl-php/b6486dd0a5cd0a7915f2a6c6b9c14dac
+      CodeUri: s3://whereiscl-php/c5f72c7773daaaeddbedfdc3f10c17f3
       Handler: index.php
       Timeout: 30
       MemorySize: 1024

@@ -30,7 +30,8 @@ echo $html; ?>
         ?>
         player = new YT.Player("<?php echo $id ?>",
             {
-                videoId: "<?php echo $idVideo ?>"
+                videoId: "<?php echo $idVideo ?>",
+                autoplay: 0;
             });
         <?php
         }
