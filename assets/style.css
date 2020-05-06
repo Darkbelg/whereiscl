@@ -9,6 +9,14 @@ h1{
 }
 
 .row>.col-12>h2{
-    margin-top: 1rem;
+    margin-top: 2rem;
     font-size: 2.5rem;
+}
+
+span{
+    font-size: small;
+}
+
+.fancam{
+    margin-bottom: 1em;
 }

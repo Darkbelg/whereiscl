@@ -25,9 +25,6 @@ array_push($concerts, new Concert("161110", "Hello Bitches Tour"));
 //array_push($concerts, new Concert("161114", "Hello Bitches Tour"));
 array_push($concerts, new Concert("150613", "UMF"));
 
-
-
-
 try {
     $service = Service::new();
     foreach ($concerts as $key => $concert) {
@@ -40,16 +37,18 @@ try {
         $searchResults = $service->search->listSearch('id,snippet', array(
             'q' =>  'intitle:'.$concert->getDate().' intitle:cl ' . $concert->getName(),
             'type' => 'video',
-            'videoDuration' => 'medium',
-            'maxResults' => '3',
+            'videoDuration' => 'any',
+            'maxResults' => '5',
             'publishedAfter' => $timeBefore->format("Y-m-d\TH:i:sP"),
             'publishedBefore' => $timeAfter->format("Y-m-d\TH:i:sP"),
         ));
         $fancams = array();
+
         foreach ($searchResults as $searchResult) {
             $fancam = new Fancam();
             $fancam->setVideoId($searchResult['id']['videoId']);
             $fancam->setVideoTitle($searchResult['snippet']['title']);
+            $fancam->setThumbnail($searchResult['snippet']['thumbnails']['high']['url']);
             array_push($fancams, $fancam);
         }
         $concert->setFancams($fancams);

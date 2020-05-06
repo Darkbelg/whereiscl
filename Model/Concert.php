@@ -10,7 +10,7 @@ class Concert
     private $country;
     private $name;
     //array
-    private $fancams;
+    private $fancams = [];
     private static  $dateRange = 5;
 
     /**
@@ -116,5 +116,13 @@ class Concert
         $this->fancams = $fancams;
     }
 
+    public function getformattedDate()
+    {
+        $formattedDate = $this->getDate();
+
+        $formattedDateSplit = array_reverse(str_split($formattedDate,2));
+        
+        return implode("/",$formattedDateSplit);
+    }
 
 }

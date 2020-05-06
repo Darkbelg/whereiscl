@@ -5,6 +5,7 @@ class Fancam
 {
     private $videoId;
     private $videoTitle;
+    private $thumbnail;
 
     /**
      * @return mixed
@@ -36,5 +37,25 @@ class Fancam
     public function setVideoTitle($videoTitle)
     {
         $this->videoTitle = $videoTitle;
+    }
+
+    /**
+     * Get the value of thumbnail
+     */ 
+    public function getThumbnail()
+    {
+        return $this->thumbnail;
+    }
+
+    /**
+     * Set the value of thumbnail
+     *
+     * @return  self
+     */ 
+    public function setThumbnail($thumbnail)
+    {
+        $this->thumbnail = $thumbnail;
+
+        return $this;
     }
 }
